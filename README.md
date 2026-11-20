@@ -1,89 +1,88 @@
-# Maji Ndogo Agricultural Analytics
+# Maji Ndogo: Agricultural Data Exploration and Analysis
 
-## Overview
+## Project Overview
 
-Maji Ndogo is a fictional African country working to modernize its agricultural sector through data-driven decision-making. Before farming processes can be automated, it is essential to understand which crops grow best under different environmental conditions.
+Agricultural planning requires an understanding of the environmental conditions in which crops grow. In this project, I explored agricultural and environmental data from the fictional country of Maji Ndogo to investigate how rainfall, elevation, temperature and soil fertility vary across crop types.
 
-This project uses Python and SQL to analyze agricultural, climate, and geographical data to identify the factors that influence crop performance. Through exploratory data analysis, data transformation, and statistical aggregation, the project uncovers patterns that can be used to recommend suitable locations for crop cultivation and support future farming automation.
+Using Python, SQL and Pandas, I integrated data from multiple tables, corrected data quality issues and analysed growing conditions to identify patterns that could support crop selection and agricultural planning.
 
-## Objectives
+## The Objectives
 
-This project aims to:
+- **Explore crop distribution:** Examine rainfall and elevation associated with different crop types to understand their growing environments.
+- **Identify fertile soils:** Compare average soil fertility across soil types to identify soils with higher fertility scores.
+- **Assess climate and geography:** Compare rainfall, temperature and elevation across crops to investigate differences in growing conditions.
+- **Identify high-performing crops:** Determine which crop types are most frequently represented among fields with above-average standard yields.
+- **Filter suitable growing conditions:** Identify fields meeting specific yield, temperature and pollution criteria.
 
-* Explore how environmental factors influence crop production.
-* Identify the conditions under which different crops perform best.
-* Compare crop performance across regions and soil types.
-* Discover relationships between climate, geography, and agricultural yield.
-* Generate data-driven insights to support agricultural planning.
+## Tools Used
 
-## Analysis Performed
+- Python
+- Pandas
+- SQL
+- SQLite
+- SQLAlchemy
+- Jupyter Notebook
 
-Throughout this project, I answered several key analytical questions, including:
+## Project Workflow
 
-### 1. Crop-Specific Analysis
+### 1. Data Integration
 
-* Investigated the environmental conditions required for successful tea cultivation.
-* Calculated the average rainfall and elevation for tea-growing regions.
-* Compared growing conditions across different crop types.
+- Connected to an SQLite database containing four agricultural and environmental tables.
+- Used SQL joins on `Field_ID` to combine geographic, weather, soil and crop, and farm management data into a single dataset.
+- Loaded the integrated data into a Pandas DataFrame for analysis.
 
-### 2. Soil Analysis
+### 2. Data Cleaning and Preparation
 
-* Grouped agricultural data by soil type.
-* Evaluated soil fertility across different regions.
-* Identified fertile soils suitable for future agricultural expansion.
+Addressed data inconsistencies before analysis:
 
-### 3. Climate and Geographic Analysis
+- Corrected swapped column names.
+- Standardised crop names and corrected spelling errors.
+- Corrected negative elevation values.
+- Removed unnecessary field identifiers.
+- Verified crop categories, elevation values and data types.
 
-* Explored the relationship between rainfall, elevation, and temperature.
-* Calculated average environmental conditions across different categories.
-* Investigated how climate influences crop suitability.
+### 3. Agricultural Analysis
 
-### 4. Yield Analysis
+**Crop distribution**
 
-* Identified crops producing above-average yields.
-* Ranked crop performance using grouped statistical summaries.
-* Determined which crop consistently achieved the highest productivity.
+Developed a reusable Python function to calculate average rainfall and elevation for a selected crop, allowing growing environments to be compared across crop types.
 
-### 5. High-Performance Crop Profiling
+**Soil fertility**
 
-For the highest-performing crop, the analysis examined the environmental conditions associated with superior yields, including:
+Grouped the data by soil type and calculated average fertility scores to compare soil fertility across six soil categories.
 
-* Average temperature
-* Rainfall
-* Elevation
-* Pollution levels
-* Crop-specific growing conditions
+**Climate and geographical conditions**
 
-These insights help define the optimal conditions for sustainable agricultural production.
+Aggregated elevation, minimum temperature, maximum temperature and rainfall by crop type to compare environmental conditions across eight crop categories.
+
+**Yield performance**
+
+Filtered fields with above-average standard yields, grouped them by crop type and ranked crop categories according to the number of qualifying fields to identify the most frequently represented crop.
+
+**Growing conditions**
+
+Applied multiple filtering criteria to identify fields for a selected crop that had above-average standard yields, average temperatures between 12°C and 15°C, and pollution levels below 0.0001.
+
+### 4. Data Exploration and Visualisation
+
+Used Pandas to create visualisations to support exploratory analysis:
+
+- Bar chart comparing average standard yields across crop types.
+- Histogram examining the distribution of standard yields.
+- Scatter plot exploring the relationship between pollution levels and standard yields.
+
+Also explored the use of `DataFrame.query()` to simplify filtering and improve readability when applying multiple conditions.
+
+## How the Analysis Can Support Agricultural Planning
+
+The analysis provides a starting point for agricultural decision-making by helping planners:
+
+- Compare environmental conditions across crops when evaluating potential cultivation areas.
+- Examine soil fertility differences when assessing agricultural land.
+- Explore climate and geographical characteristics associated with different crops.
+- Narrow down fields based on selected yield and environmental criteria.
+- Identify patterns that could inform the placement and planning of agricultural automation systems.
 
 ## Skills Demonstrated
 
-* Data extraction using SQL
-* Relational database querying
-* Data cleaning and preparation
-* Exploratory Data Analysis (EDA)
-* Data aggregation using groupby()
-* Statistical analysis
-* Feature filtering
-* Descriptive statistics
-* Python function development
-* Data visualization
-* Analytical problem solving
-
-## Technologies
-
-* Python
-* SQL
-* SQLite
-* Pandas
-* SQLAlchemy
-* Jupyter Notebook
-
-## Key Takeaways
-
-This project demonstrates how exploratory data analysis can transform raw agricultural data into actionable insights. By identifying relationships between environmental variables and crop performance, the analysis supports evidence-based agricultural planning and provides a foundation for future farm automation initiatives in Maji Ndogo.
-
-## Acknowledgements
-
-This project was completed as part of the ALX Data Analytics programme and uses the fictional country of Maji Ndogo as a case study to apply data analytics techniques to agricultural decision-making.
-
+SQL joins and data extraction, Python programming, Pandas data manipulation, data cleaning, exploratory data analysis, aggregation, conditional filtering, data visualisation and reusable functions.
